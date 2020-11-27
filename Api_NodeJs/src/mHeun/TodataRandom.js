@@ -1,5 +1,7 @@
+/*
 const { Router } = require('express');
 const router = Router();
+*/
 
 nTi = 0;
 nTf = parseInt((Math.random() * (8 - 4) + 4));
@@ -35,21 +37,38 @@ function getRandomSubarray(arr, size) {
 var x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 var aU = getRandomSubarray(x, 7);
 
-function MetodoHeun(t, u, h, f, F, c) {
-    let T = [t];
+//function MetodoHeun(t, u, h, f, F, c) {
+    //(nTi,aU,h,nTf,F,nC)
+
+
+    function MetodoHeun() {
+    var list = {
+        'Prediccion' :[],
+        'correccion' :[] 
+      };
+
+    var Lp = {
+        'Prediccion' :[],
+    };
+    var Lc = {
+        'correccion' :[ ] 
+    };
+    var u = getRandomSubarray(x, 7);
+    let T = [0];
     let P = [];
     let C = [];
     let CU = u;
+    let Dt = [];
 
     for (y = 0; y < u.length; y++) {
         P.push([u[y]]);
         C.push([u[y]]);
     }
     for (i = 0; i < 5; i++) {
-        T.push(T[i] + h)
+        T.push(T[i] + Math.random())
         for (j = 0; j < u.length; j++) {
 
-            var SF = F(c, CU)
+            var SF = F(parseInt(Math.random() * 21), CU)
             var DT = T[i + 1] - T[i]
 
             P[j].push(P[j][i] + ((SF[j][0]) * DT))
@@ -57,48 +76,88 @@ function MetodoHeun(t, u, h, f, F, c) {
             for (data in P) {
                 CUP.push(P[data][i])
             }
-            var SFP = F(c, CUP)
+            var SFP = F(parseInt(Math.random() * 21), CUP)
             C[j].push(C[j][i] + ((SFP[j][0] + SF[j][0]) / 2) * DT)
 
         }
     }
-    return [P, C]
+
+    
+
+    var n = 1;
+    //Prediccion
+    for (var i = 0; i < P.length; i++) {
+      var u = "U"+n;
+      var d =  []
+      for (var j = 1; j < P[i].length; j++) {
+          d.push(P[i][j])
+      }
+      n++
+  
+      Lp.Prediccion.push({
+          "id" : u,
+          "u" : P[i][0],
+          "data" : d,
+        });
+  };
+  n = 1;
+  //correccion 
+  for (var i = 0; i < C.length; i++) {
+      var u = "U"+n;
+      var d =  []
+      for (var j = 1; j < C[i].length; j++) {
+          d.push(C[i][j])
+      }
+      n++
+  
+      Lc.correccion.push({
+          "id" : u,
+          "u" : C[i][0],
+          "data" : d,
+        });
+  };
+    Dt.push(Lp);
+    Dt.push(Lc);
+    
+    return Dt
 }
 
-datas = MetodoHeun(1, aU, h, 2, F, nC)
-//console.log(datas)
+exports.MetodoHeun = MetodoHeun
 
-
-
-
-//console.log(datas[0]) //prediccion
-
-//console.log(datas[1]) // correccion
-
-const a = 
-
-{  "Prediccion" :   [
-                        {   "u1" : "9",
-                        
-                            "data": [
-                                217.96420360371138,
-                                426.92840720742277,
-                                635.8926108111341,
-                                844.8568144148455,
-                                1053.821018018557]
-                        }
-                    ]
-}
-
-
-
+/*
 
 router.get("/", async(req, res) => {
-    const lucas = MetodoHeun(1, aU, h, 2, F, nC);
-    res.json(a);
+    res.json(MetodoHeun());
 
 });
 
 
 
 module.exports = router;
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

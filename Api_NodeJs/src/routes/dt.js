@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
     const { timeone, timetwo } = req.body;
     if (timeone && timetwo) {
         const NewTimes = {...req.body }
-        console.log(NewTimes);
+        //console.log(NewTimes);
         time.push(NewTimes);
         res.json(time);
     } else {
