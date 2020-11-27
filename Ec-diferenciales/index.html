@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <script type="text/javascript" src = "./js/sc1.js" ></script>
+</head>
+
+<body id="page-top">
+
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Animación Ecuaciones Diferenciales</h1>
+	<h3>Integrantes: Lucas Jara - Claudio Lizama</h3>
+    <!--      <p class="lead">A landing page template freshly redesigned for Bootstrap 4</p>-->
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Simulación </h2>
+
+
+        <p class="lead"> A continuación se presetará la simulacion correspondiente al modelo realizado,
+          el cual trabaja sobre una region de Temuco utilizando una malla triangular:</p>
+        <form id="info">
+          <div class="panel panel-default" >
+            <div class="panel-heading">
+              <div class="row ">
+              </div>
+              <div class="row ">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                  <span class="help-block text-muted small-font" > Tiempo Inicial:</span>
+                  <input type="number" id="data1" name="val" class="form-control" placeholder="Ingresa tiempo inicial" required/>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <span class="help-block text-muted small-font" >  Tiempo Final:
+                    </span>
+                  <input type="number" id="data2" name="val" class="form-control" placeholder="Ingresa tiempo final" required />
+
+                </div>
+                <br>
+              </div>
+              <br>
+
+              <div class="row ">
+                <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                  <input type="button" value="Ingresar" class="btn btn-dark"  onclick="recibe('info');"/>
+                  <input type="button" value="Nuevos datos" class="btn btn-dark"  onclick="rein();"/>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </form>
+        <br>
+      </div>
+
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-sm-6 order-2 order-sm-1 ">
+
+            <div id="Lucas"></div>
+
+
+
+            <!--              <h1 class="p-4">CONTENIDO 1</h1>-->
+          </div>
+
+          <div class="col-sm-6 order-1 order-sm-2 ">
+            <!--              <h1 class="p-4">ASIDE</h1>-->
+          </div>
+          <div class="col-sm-6 order-2">
+            <div id="content2"></div>
+            <!--              <H1 class="p-4">CONTENIDO 2</H1>-->
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+
+          <img src="img/mapa.PNG" >
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
